@@ -57,6 +57,7 @@ public class StreamNode {
 
     private final int id;
     private int parallelism;
+
     /**
      * Maximum parallelism for this stream node. The maximum parallelism is the upper limit for
      * dynamic scaling and the number of key groups used for partitioned state.

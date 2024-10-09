@@ -733,6 +733,7 @@ public class StandardConvertletTable extends ReflectiveConvertletTable {
         requireNonNull(returnType, () -> "Unable to get type of " + call);
         return cx.getRexBuilder().makeCall(returnType, fun, exprs);
     }
+
     // END FLINK MODIFICATION
 
     public RexNode convertSequenceValue(
@@ -977,7 +978,7 @@ public class StandardConvertletTable extends ReflectiveConvertletTable {
                         }
                     }
                 }
-                // fall through
+            // fall through
             case LEAST_RESTRICTIVE:
                 return cx.getTypeFactory().leastRestrictive(types);
             default:

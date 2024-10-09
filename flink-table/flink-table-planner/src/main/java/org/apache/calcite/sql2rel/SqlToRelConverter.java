@@ -1184,7 +1184,7 @@ public class SqlToRelConverter {
                 if (!config.isExpand()) {
                     return;
                 }
-                // fall through
+            // fall through
             case MULTISET_VALUE_CONSTRUCTOR:
                 rel = convertMultisets(ImmutableList.of(subQuery.node), bb);
                 subQuery.expr = bb.register(rel, JoinRelType.INNER);
@@ -2092,9 +2092,9 @@ public class SqlToRelConverter {
         }
         if (node instanceof SqlCall) {
             switch (kind) {
-                    // Do no change logic for AND, IN and NOT IN expressions;
-                    // but do change logic for OR, NOT and others;
-                    // EXISTS was handled already.
+                // Do no change logic for AND, IN and NOT IN expressions;
+                // but do change logic for OR, NOT and others;
+                // EXISTS was handled already.
                 case AND:
                 case IN:
                 case NOT_IN:
@@ -2223,7 +2223,7 @@ public class SqlToRelConverter {
         switch (aggCall.getKind()) {
             case IGNORE_NULLS:
                 ignoreNulls = true;
-                // fall through
+            // fall through
             case RESPECT_NULLS:
                 aggCall = aggCall.operand(0);
                 break;
@@ -5170,8 +5170,7 @@ public class SqlToRelConverter {
             return rexBuilder.makeRangeReference(pair.left.getRowType(), pair.right, false);
         }
 
-        @Nullable
-        RelDataTypeField getRootField(RexInputRef inputRef) {
+        @Nullable RelDataTypeField getRootField(RexInputRef inputRef) {
             List<RelNode> inputs = this.inputs;
             if (inputs == null) {
                 return null;
@@ -5219,8 +5218,7 @@ public class SqlToRelConverter {
             subQueryList.add(new SubQuery(node, logic));
         }
 
-        @Nullable
-        SubQuery getSubQuery(SqlNode expr) {
+        @Nullable SubQuery getSubQuery(SqlNode expr) {
             for (SubQuery subQuery : subQueryList) {
                 // Compare the reference to make sure the matched node has
                 // exact scope where it belongs.
@@ -5379,7 +5377,7 @@ public class SqlToRelConverter {
                     if (config.isExpand()) {
                         throw new RuntimeException(kind + " is only supported if expand = false");
                     }
-                    // fall through
+                // fall through
                 case CURSOR:
                 case IN:
                 case NOT_IN:
@@ -5997,7 +5995,7 @@ public class SqlToRelConverter {
                     return;
                 case IGNORE_NULLS:
                     ignoreNulls = true;
-                    // fall through
+                // fall through
                 case RESPECT_NULLS:
                     translateAgg(
                             call.operand(0),
@@ -6078,8 +6076,8 @@ public class SqlToRelConverter {
                                 call2, filter, distinctList, orderList, ignoreNulls, outerCall);
                         return;
                     }
-                    // "ARRAY_AGG" and "ARRAY_CONCAT_AGG" without "ORDER BY"
-                    // are handled normally; fall through.
+                // "ARRAY_AGG" and "ARRAY_CONCAT_AGG" without "ORDER BY"
+                // are handled normally; fall through.
 
                 default:
                     break;
@@ -6470,8 +6468,7 @@ public class SqlToRelConverter {
          * @param aggFunction An aggregate function
          * @return Its histogram function, or null
          */
-        @Nullable
-        SqlFunction getHistogramOp(SqlAggFunction aggFunction) {
+        @Nullable SqlFunction getHistogramOp(SqlAggFunction aggFunction) {
             if (aggFunction == SqlStdOperatorTable.MIN) {
                 return SqlStdOperatorTable.HISTOGRAM_MIN;
             } else if (aggFunction == SqlStdOperatorTable.MAX) {
@@ -6614,6 +6611,7 @@ public class SqlToRelConverter {
     private static class CorrelationUse {
         private final CorrelationId id;
         private final ImmutableBitSet requiredColumns;
+
         /** The relational expression that uses the variable. */
         private final RelNode r;
 

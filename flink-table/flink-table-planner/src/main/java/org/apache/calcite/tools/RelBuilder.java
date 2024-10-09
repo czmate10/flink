@@ -1192,7 +1192,7 @@ public class RelBuilder {
                     return expr;
                 }
                 expr = call.operands.get(0);
-                // strip current (incorrect) alias, and fall through
+            // strip current (incorrect) alias, and fall through
             default:
                 return call(SqlStdOperatorTable.AS, expr, aliasLiteral);
         }
@@ -1360,7 +1360,9 @@ public class RelBuilder {
     }
 
     // CHECKSTYLE: IGNORE 1
-    /** @deprecated Use {@link #groupKey(ImmutableBitSet, Iterable)}. */
+    /**
+     * @deprecated Use {@link #groupKey(ImmutableBitSet, Iterable)}.
+     */
     @Deprecated // to be removed before 2.0
     public GroupKey groupKey(
             ImmutableBitSet groupSet,
@@ -4059,8 +4061,7 @@ public class RelBuilder {
         SqlAggFunction op();
 
         /** Returns the alias. */
-        @Nullable
-        String alias();
+        @Nullable String alias();
 
         /**
          * Returns an {@link AggregateCall} that is approximately equivalent to this {@code AggCall}

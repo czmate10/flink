@@ -145,7 +145,9 @@ public final class TypeInference {
             return this;
         }
 
-        /** @see #namedArguments(List) */
+        /**
+         * @see #namedArguments(List)
+         */
         public Builder namedArguments(String... argumentNames) {
             return namedArguments(Arrays.asList(argumentNames));
         }
@@ -180,7 +182,9 @@ public final class TypeInference {
             return this;
         }
 
-        /** @see #typedArguments(List) */
+        /**
+         * @see #typedArguments(List)
+         */
         public Builder typedArguments(DataType... argumentTypes) {
             return typedArguments(Arrays.asList(argumentTypes));
         }

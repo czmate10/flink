@@ -124,6 +124,7 @@ public class SqlTimestampAddFunction extends SqlFunction {
                 ? SqlTypeName.TIMESTAMP_WITH_LOCAL_TIME_ZONE
                 : SqlTypeName.TIMESTAMP;
     }
+
     // END FLINK MODIFICATION
 
     /** Creates a SqlTimestampAddFunction. */

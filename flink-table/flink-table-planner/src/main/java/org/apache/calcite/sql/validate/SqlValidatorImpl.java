@@ -1206,7 +1206,7 @@ public class SqlValidatorImpl implements SqlValidatorWithHints {
                 if (ns != null) {
                     return ns;
                 }
-                // fall through
+            // fall through
             case TABLE_REF:
             case SNAPSHOT:
             case OVER:
@@ -1741,8 +1741,7 @@ public class SqlValidatorImpl implements SqlValidatorWithHints {
     /**
      * Returns null if there is no common type. E.g. if the rows have a different number of columns.
      */
-    @Nullable
-    RelDataType getTableConstructorRowType(SqlCall values, SqlValidatorScope scope) {
+    @Nullable RelDataType getTableConstructorRowType(SqlCall values, SqlValidatorScope scope) {
         final List<SqlNode> rows = values.getOperandList();
         assert rows.size() >= 1;
         final List<RelDataType> rowTypes = new ArrayList<>();
@@ -2556,7 +2555,7 @@ public class SqlValidatorImpl implements SqlValidatorWithHints {
                             forceNullable,
                             true);
                 }
-                // fall through
+            // fall through
             case SELECT:
             case UNION:
             case INTERSECT:
@@ -3476,7 +3475,7 @@ public class SqlValidatorImpl implements SqlValidatorWithHints {
                             join.getJoinTypeNode(),
                             RESOURCE.dialectDoesNotSupportFeature("LEFT SEMI JOIN"));
                 }
-                // fall through
+            // fall through
             case INNER:
             case LEFT:
             case RIGHT:
@@ -5328,8 +5327,7 @@ public class SqlValidatorImpl implements SqlValidatorWithHints {
         originalExprs.putIfAbsent(expr, original);
     }
 
-    @Nullable
-    SqlValidatorNamespace lookupFieldNamespace(RelDataType rowType, String name) {
+    @Nullable SqlValidatorNamespace lookupFieldNamespace(RelDataType rowType, String name) {
         final SqlNameMatcher nameMatcher = catalogReader.nameMatcher();
         final RelDataTypeField field = nameMatcher.field(rowType, name);
         if (field == null) {
